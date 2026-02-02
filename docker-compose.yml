@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  openclaw:
+    build: .
+    container_name: openclaw
+    ports:
+      - "18789:18789"
+    volumes:
+      - openclaw_data:/data/openclaw
+    restart: unless-stopped
+
+volumes:
+  openclaw_data:
