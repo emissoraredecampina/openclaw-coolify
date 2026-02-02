@@ -1,14 +1,16 @@
-version: "3.8"
-
+version: '3.8'
 services:
   openclaw:
     build: .
     container_name: openclaw
     ports:
-      - "18789:18789"
+      - '18789:18789'
     volumes:
-      - openclaw_data:/data/openclaw
+      - 'openclaw_data:/data/openclaw'
     restart: unless-stopped
-
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENCLAW_GATEWAY_KEY=${OPENCLAW_GATEWAY_KEY}
 volumes:
   openclaw_data:
+    name: openclaw_data
